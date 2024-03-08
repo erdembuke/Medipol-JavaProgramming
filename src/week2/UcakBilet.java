@@ -18,11 +18,9 @@ public class UcakBilet {
     public static void main(String[] args) {
         Scanner scInt3 = new Scanner(System.in);
         double birimFiyat = 0.10;
-        int destination;
-        int age;
+        int destinationValue;
         double price = 0;
         boolean completed = false;
-        boolean completedSwitch = false;
 
         System.out.println("----- ***** Uçak bileti satın alma programı ***** -----");
         while (!completed) {
@@ -30,26 +28,22 @@ public class UcakBilet {
             System.out.println("2- İzmir (350km)");
             System.out.println("3- Muğla (700km)");
             System.out.print("Please choose a destination (1/2/3): ");
-            destination = scInt3.nextInt();
-            switch (destination) {
+            destinationValue = scInt3.nextInt();
+            switch (destinationValue) {
                 case 1:
                     price = switchCaseMethod(500,birimFiyat);
                     completed = true;
                     break;
-
                 case 2:
                     price = switchCaseMethod(350,birimFiyat);
                     completed = true;
                     break;
-
                 case 3:
                     price = switchCaseMethod(700,birimFiyat);
                     completed = true;
                     break;
-
                 default:
                     System.out.println("Incorrect destination value. Try again");
-
             }
         }
         System.out.println("Purchase completed! price is " + price + "$");
