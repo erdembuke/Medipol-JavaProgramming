@@ -64,11 +64,6 @@ public class _01_Intro {
         priceIncludedTax = price + tax;
         System.out.println("Price included 20% tax -> " + priceIncludedTax);
 
-
-
-
-
-
     }
 
 }
