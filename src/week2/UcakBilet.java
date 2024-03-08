@@ -33,89 +33,18 @@ public class UcakBilet {
             destination = scInt3.nextInt();
             switch (destination) {
                 case 1:
-                    while (!completedSwitch) {
-                        System.out.print("Lütfen yaş giriniz: ");
-                        age = scInt3.nextInt();
-                        if (age < 12 && age >= 0) {
-                            price = (500 * birimFiyat) * 0.50;
-                            completed = true;
-                            completedSwitch = true;
-                            break;
-                        } else if (age > 12 && age < 24) {
-                            price = (500 * birimFiyat) * 0.90;
-                            completed = true;
-                            completedSwitch = true;
-                            break;
-                        } else if (age >= 24 && age <= 65) {
-                            price = (500 * birimFiyat);
-                            completed = true;
-                            completedSwitch = true;
-                            break;
-                        } else if (age > 65 && age <= 100) {
-                            price = (500 * birimFiyat) * 0.80;
-                            completed = true;
-                            completedSwitch = true;
-                            break;
-                        } else
-                            System.out.println("Incorrect age value, try again. Age cannot be lower than 0 " +
-                                    "and cannot be above 100");
-                    }
+                    price = switchCaseMethod(500,birimFiyat);
+                    completed = true;
                     break;
 
                 case 2:
-                    while (!completedSwitch) {
-                        System.out.print("Lütfen yaş giriniz: ");
-                        age = scInt3.nextInt();
-                        if (age < 12 && age >= 0) {
-                            price = (350 * birimFiyat) * 0.50;
-                            completed = true;
-                            completedSwitch = true;
-                            break;
-                        } else if (age > 12 && age < 24) {
-                            price = (350 * birimFiyat) * 0.90;
-                            completed = true;
-                            completedSwitch = true;
-                            break;
-                        } else if (age >= 24 && age <= 65) {
-                            price = (350 * birimFiyat);
-                            completed = true;
-                            completedSwitch = true;
-                            break;
-                        } else if (age > 65 && age <= 100) {
-                            price = (350 * birimFiyat) * 0.80;
-                            completed = true;
-                            completedSwitch = true;
-                            break;
-                        } else
-                            System.out.println("Incorrect age value, try again. Age cannot be lower than 0 " +
-                                    "and cannot be above 100");
-                    }
+                    price = switchCaseMethod(350,birimFiyat);
+                    completed = true;
                     break;
 
                 case 3:
-                    while (!completedSwitch) {
-                        System.out.print("Please input age: ");
-                        age = scInt3.nextInt();
-                        if (age < 12 && age >= 0) {
-                            price = (700 * birimFiyat) * 0.50;
-                            completed = true;
-                            completedSwitch = true;
-                        } else if (age > 12 && age < 24) {
-                            price = (700 * birimFiyat) * 0.90;
-                            completed = true;
-                            completedSwitch = true;
-                        } else if (age >= 24 && age <= 65) {
-                            price = (750 * birimFiyat);
-                            completed = true;
-                            completedSwitch = true;
-                        } else if (age > 65 && age <= 100) {
-                            price = (700 * birimFiyat) * 0.80;
-                            completed = true;
-                            completedSwitch = true;
-                        } else
-                            System.out.println("Incorrect age value, try again. Age cannot be lower than 0 " +
-                                    "and cannot be above 100");
-                    }
+                    price = switchCaseMethod(700,birimFiyat);
+                    completed = true;
                     break;
 
                 default:
@@ -124,5 +53,39 @@ public class UcakBilet {
             }
         }
         System.out.println("Purchase completed! price is " + price + "$");
+    }
+
+
+    // switch case method for more readable code
+    public static double switchCaseMethod(int distance, double birimFiyat) {
+        Scanner scanner = new Scanner(System.in);
+        double price = 0;
+        boolean completedSwitch = false;
+
+        while (!completedSwitch) {
+            System.out.print("Lütfen yaş giriniz: ");
+            int age = scanner.nextInt();
+            if (age < 12 && age >= 0) {
+                price = (distance * birimFiyat) * 0.50;
+                completedSwitch = true;
+                break;
+            } else if (age > 12 && age < 24) {
+                price = (distance * birimFiyat) * 0.90;
+                completedSwitch = true;
+                break;
+            } else if (age >= 24 && age <= 65) {
+                price = (distance * birimFiyat);
+                completedSwitch = true;
+                break;
+            } else if (age > 65 && age <= 100) {
+                price = (distance * birimFiyat) * 0.80;
+                completedSwitch = true;
+                break;
+            } else
+                System.out.println("Incorrect age value, try again. Age cannot be lower than 0 " +
+                        "and cannot be above 100");
+        }
+
+        return price;
     }
 }
